@@ -123,7 +123,7 @@ if(is_string($nadimak) && is_string($grad) && is_bool($priv_prav) && is_bool($an
         if (
         $db->exec("INSERT INTO donatori(Ime,Lozinka,PrivatnoPravno,Grad,Email,Anonimnost,idUloga) VALUES ('$nadimak','$lozinka','$priv_prav','$grad','$mail','$anonimno',3)")
         ) {
-             $db->exec("INSERT INTO svi(ime,lozinka,idVrste) VALUES ('$nadimak','$lozinka',3)");
+             $db->exec("INSERT INTO svi(ime,lozinka,uloga) VALUES ('$nadimak','$lozinka',3)");
             echo "Uspješno ste registrirani! Za 5 sec ćete biti preusmjereni na glavnu stranicu.";
             $db = NULL;
             kraj();
