@@ -12,7 +12,7 @@ include('spajanje.php');
 $query="SELECT * FROM  ppopisdomova WHERE naziv=$ime";
 $result=mysqli_query($konekcija,$query) or die('upit ne radi');
 
-$row = mysqli_fetch_array($result));
+$row = mysqli_fetch_array($result);
 $adresa=$row['email'];
 
 

@@ -21,28 +21,46 @@ $query = "SELECT ime,lozinka,uloga FROM svi WHERE ime LIKE ?";
 $stmt = $conn->prepare($query);
 
 if ($stmt) {
+
     $stmt->bind_param("s", $nadimak);
     $stmt->execute();
     $stmt->bind_result($user, $pass,$uloga);
 
+	if (!$stmt->execute()){echo "No no,nešto je krivo!";}
     while ($stmt->fetch()) {
-   if($lozinka==$pass){
-   
+     
+   if(strcmp($lozinka,$pass)==0){
+
    session_start();
+
    $_SESSION['username']=$nadimak;
    $_SESSION['id']=$uloga;
+
 header('Location: index.php');
 }
+
+
     }
+
 
     $stmt->close();
 
+
 } else {
-    trigger_error('Statement failed : ' . $stmt->error, E_USER_ERROR);
+
+
+
+    
 }
+
 
 $conn->close();
 
 
 
 ?>
+
+
+
+
+

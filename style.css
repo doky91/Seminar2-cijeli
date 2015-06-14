@@ -1,4 +1,8 @@
-body{background-color:#74AFAD; color:white;}
-ul li a{color:white;}
-.ponuda a{color:white; font-size: 30px;margin-top:20px;}
-#por a{color:white;font-size: 25px;}
+body{padding:1%; background-image:url('pozadinas.jpg'); background-size: 100%; /*color:white;*/}
+ul li a{color:black;}
+.ponuda a{color:black; font-size: 30px;margin-top:20px;}
+#por a{color:black;font-size: 25px;}
+header{min-height: 150px;}
+aside{float:left; width:30%; padding:1%;}
+article{float: right;width:70%; padding:1%;}
+#logout-jezik{float:right;}

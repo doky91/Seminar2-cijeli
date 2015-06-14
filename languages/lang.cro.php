@@ -50,16 +50,21 @@ $lang['REG_PERSONAPP']='privatna';
 $lang['REG_PERSONAFI']='pravna';
 $lang['REG_Y']='Registriraj se';
 
+$lang['REGBAZ_NICKTAKEN1']='Nadimak:';
+$lang['REGBAZ_NICKTAKEN2']=' već postoji, pokušajte sa nekim drugim';
+$lang['REGBAZ_REGSU']='Uspješno ste registrirani! Za 5 sec ćete biti preusmjereni na glavnu stranicu za login.';
+$lang['REGBAZ_REGERROR1']='Došlo je do ';
+$lang['REGBAZ_REGERROR2']=' greške prilikom unosa podataka.<br/>Pokušajte ponovo';
 
 $lang['REG_UST']='Registracija ustanove';
 
-$lang['REG_USTNA']='Ime ustanove';
+$lang['REG_USTNA']='Ime ustanove:';
 
 $lang['REG_USTNK']='Željeno korisničko ime:';
 
 $lang['REG_USTMSG']='*Korisničku lozinku i daljne upute ćete primiti na vaš službeni mail ustanove!';
 
-$lang['REG_USTRQ']='Pošalji zahtjev za registraciju';
+$lang['REG_USTRQ']='Pošalji zahtjev';
 
 $lang['NEWS_TITLE']='Naslov vijesti:';
 $lang['NEWS_CONTENT']='Sadržaj vijesti:';

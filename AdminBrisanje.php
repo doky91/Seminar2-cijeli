@@ -2,6 +2,7 @@
 
 session_start();
 $tip=$_SESSION['id'];
+$korisnik=$_SESSION['username'];
 
 include('provjerajezika.php');
 
@@ -11,18 +12,13 @@ exit;
 
 }
 
-
-
-
 else{}
 ?>
-
-
 
 <html>
 <head>
 <title>Admin</title> 
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css"  type="text/css"/>
+<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="application/javascript">
 
@@ -35,17 +31,32 @@ function logoutck() {
 </script>
 
 </head>
-<body><br>
-	<div class="row">
+<body>
+<header>
+
+    <div class="span4">
+        <h1> <? echo $lang['MAIN_TITLE']?></h1>
+    </div>
+    <div class="span8" id="logout-jezik">
+
+        <?php echo $lang['MAIN_ISLOGGED'];echo $korisnik;?>
+        <button onclick=logoutck() class="btn btn-default"> Odjava </button>
+        <div id="languages">
+            <a href="AdminBrisanje.php?lang=en"> ENGLISH</a>
+            <a href="AdminBrisanje.php?lang=cro"> HRVATSKI</a>
+        </div>
+    </div>
+</header>
+<aside>
 		<div class="span6 offset2">
 <?include('meni.php');?>
-
 		</div>
+</aside>
+<article>
 <div class="span6">
 <p><b><? echo $lang['NEW_DEL']?></b></p>
 
 <?php
-
 
 include('spajanje.php');
 
@@ -53,9 +64,7 @@ $query =  "SELECT id,naslov FROM vijesti";
       
 $result = mysqli_query($konekcija, $query);
 
-
-
-echo "<table>";
+echo "<table class=\"table table-bordered\">";
 
 while($row = mysqli_fetch_array($result)) {
 
@@ -78,19 +87,15 @@ $query =  "SELECT id,naslov FROM temeDonacija";
       
 $result = mysqli_query($konekcija, $query) or die('nope');
 
-
-
-echo "<table>";
+echo "<table class=\"table table-bordered\">";
 
 while($row = mysqli_fetch_array($result)) {
 
  echo "<tr><td>{$row['id']}</td><td>{$row['naslov']} </td></tr>" ;
 
 }
-
 echo "</table>";
 ?>
-
 
 <p><b><? echo $lang['ADD_DEL']?></b></p>
 <form action="AdminAkcije.php" method="post">
@@ -98,8 +103,8 @@ echo "</table>";
 <input type="tekst" name="brojic">
 <button type="submit" class="btn btn-default"><? echo $lang['BTTN_DEL'] ?> </button>
 </form>
-</div></div>
-
+</div>
+</article>
 </body>
 
 </html>

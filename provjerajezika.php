@@ -10,7 +10,7 @@ $_SESSION['lang'] = $lang;
 
 else
 {
-$lang = 'cro' ;
+$lang = $_SESSION['lang'] ;
 }
  
 
@@ -23,7 +23,7 @@ $lang = 'cro' ;
   $lang_file = 'lang.cro.php';
   break;
     default:
-  $lang_file = 'lang.crp.php';
+  $lang_file = 'lang.cro.php';
 }
 include_once 'languages/'.$lang_file;
 ?>

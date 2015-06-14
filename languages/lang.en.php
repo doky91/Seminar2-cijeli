@@ -52,6 +52,12 @@ $lang['REG_PERSONAPP']='private';
 $lang['REG_PERSONAFI']='firm';
 $lang['REG_Y']='Register';
 
+$lang['REGBAZ_NICKTAKEN1']='Nickname:';
+$lang['REGBAZ_NICKTAKEN2']=' already exist, try new one.';
+$lang['REGBAZ_REGSU']='Registration was successful ! In 5 sec you will be redirected on login page.';
+$lang['REGBAZ_REGERROR1']='There has been ';
+$lang['REGBAZ_REGERROR2']=' error in input.<br/>Please try again.';
+
 $lang['REG_UST']='Registration of home for orphans';
 
 $lang['REG_USTNA']='Name of the home:';

@@ -1,19 +1,45 @@
 ﻿<?php
-
 session_start();
-include('provjerajezika.php');
+
+if(isSet($_GET['lang']))
+{
+$lang = $_GET['lang'];
+ 
+
+$_SESSION['lang'] = $lang;
+}
+
+else
+{
+$lang = 'cro';
+}
+ 
+
+ switch ($lang) {
+  case 'en':
+  $lang_file = 'lang.en.php';
+  break;
+ 
+  case 'cro':
+  $lang_file = 'lang.cro.php';
+  break;
+    default:
+  $lang_file = 'lang.crp.php';
+}
+include_once 'languages/'.$lang_file;
+
+
+
 if(isset($_SESSION['username']))
   $korisnik=$_SESSION['username'];
-
 else{ header("Location:Logiranje.php");
 exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head> 
-<link rel="stylesheet" href="bootstrap/css/bootstrap.css"  type="text/css"/>
+<link rel="stylesheet" href="css/bootstrap.css"  type="text/css"/>
 <link rel="stylesheet" type="text/css" href="style.css">
 <script type="application/javascript">
 
@@ -24,36 +50,27 @@ function logoutck() {
     }
 }
 </script>
-
 </head>
-
 <body>
-<br/><br/>
-<div class="row">
+<header>
 		<div class="span4"> 
 		<h1> <? echo $lang['MAIN_TITLE']?></h1>
 		</div>
-		<div class="span8"> 
-
+		<div class="span8" id="logout-jezik">
 <?php echo $lang['MAIN_ISLOGGED'];echo $korisnik;?>
 <button onclick=logoutck() class="btn btn-default"> Odjava </button>  
         <div id="languages">
 <a href="index.php?lang=en"> ENGLISH</a>
 <a href="index.php?lang=cro"> HRVATSKI</a>
 </div>
-  <br>
-
-
-
 </div>
-
-</div>
-
-<div class="row">
-	<div class="span4"><br>
+</header>
+<aside>
+	<div class="span4">
 		<?include ('meni.php');?>
 </div>
-<br><br><br>
+</aside>
+<article>
 		<div class="span6 offset2 "> 
 			<div class="ponuda">
 
@@ -68,9 +85,6 @@ echo "<a href='$link2'>".$lang['NEEDS']."</a> " ;
 ?>
 </div>
 </div>
-</div>
-
-
-</div>
+</article>
 </body>
 </html>

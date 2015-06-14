@@ -1,7 +1,16 @@
 <?
 include('provjerajezika.php');
 
-
+/**
+ *
+ * Više se ne koristi
+ * Više se ne koristi
+ * Više se ne koristi
+ * Više se ne koristi
+ * Više se ne koristi
+ * Više se ne koristi
+ * Više se ne koristi
+ */
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +20,7 @@ include('provjerajezika.php');
     <title></title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>

@@ -21,6 +21,8 @@
 <body>
 
 <?php
+session_start();
+include('provjerajezika.php');
 //inicijalizacija vrijednosti
 
 $greske=0;
@@ -50,15 +52,15 @@ function provjera_grad($string)
     return $string;
 }
 //Greška pri unosu podataka u bazu, te preusmjeravanje
-function preusmjeravanje($greska)
+function preusmjeravanje($greska,$dio1,$dio2)
 {
-    print "Došlo je do ".$greska." greške prilikom unosa podataka.<br/>Pokušajte ponovo";
+    print $dio1.$greska.$dio2;
     kraj();
 }
 //preusmjeravanje
 function kraj()
 {
-    header("refresh:5;url=registracija_korisnika.html");
+    header("refresh:5;url=index.php");
 }
 
 /** napraviti sve za registraciju i ostalo potrebno (provjere unosa i zapis u bazu podataka
@@ -115,7 +117,9 @@ if(is_string($nadimak) && is_string($grad) && is_bool($priv_prav) && is_bool($an
         $brojac_nadimak++;
     }
     if($brojac_nadimak!=0){
-        echo "Nadimak: $nadimak već postoji, pokušajte sa nekim drugim";
+        echo $lang['REGBAZ_NICKTAKEN1'];
+        echo $nadimak;
+        echo $lang['REGBAZ_NICKTAKEN2'];
         kraj();
     }
     else {
@@ -124,17 +128,17 @@ if(is_string($nadimak) && is_string($grad) && is_bool($priv_prav) && is_bool($an
         $db->exec("INSERT INTO donatori(Ime,Lozinka,PrivatnoPravno,Grad,Email,Anonimnost,idUloga) VALUES ('$nadimak','$lozinka','$priv_prav','$grad','$mail','$anonimno',3)")
         ) {
              $db->exec("INSERT INTO svi(ime,lozinka,uloga) VALUES ('$nadimak','$lozinka',3)");
-            echo "Uspješno ste registrirani! Za 5 sec ćete biti preusmjereni na glavnu stranicu.";
+            echo $lang['REGBAZ_REGSU'];
             $db = NULL;
             kraj();
         } else {
-            preusmjeravanje($greske);
+            preusmjeravanje($greske,$lang['REGBAZ_REGERROR1'],$lang['REGBAZ_REGERROR2']);
         }
     }
 }
 else
 {
-    preusmjeravanje($greske);
+    preusmjeravanje($greske,$lang['REGBAZ_REGERROR1'],$lang['REGBAZ_REGERROR2']);
 }
 ?>
 

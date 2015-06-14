@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 10, 2015 at 10:12 AM
+-- Generation Time: Jun 14, 2015 at 02:45 PM
 -- Server version: 5.5.35
 -- PHP Version: 5.4.4-14+deb7u8
 
@@ -115,8 +115,8 @@ CREATE TABLE IF NOT EXISTS `svi` (
 
 INSERT INTO `svi` (`ime`, `lozinka`, `uloga`) VALUES
 ('admin', '202cb962ac59075b964b07152d234b70', 1),
-('kor', '202cb962ac59075b964b07152d234b70	', 3),
-('da', '202cb962ac59075b964b07152d234b70	', 2);
+('kor', '202cb962ac59075b964b07152d234b70', 3),
+('da', '202cb962ac59075b964b07152d234b70', 2);
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `temeDonacija` (
   `naslov` text COLLATE utf8_unicode_ci NOT NULL,
   `vrijeme` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
 
 --
 -- Dumping data for table `temeDonacija`
